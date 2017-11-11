@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title><%= fnname %></title>
+	<style>
+		body {
+			margin: 40px auto;
+			max-width: 750px;
+			font-size: 18px;
+			color: #444;
+			padding: 0 10px;
+		}
+
+		b + p {
+			margin-top: 0px;
+		}
+
+		tr td:first-of-type {
+			padding-right: 8px;
+		}
+
+		#parameter > table > tbody > tr > td:first-of-type {
+			font-weight: bold;
+		}
+
+		td {
+			border-right: 1px grey solid;
+			border-top: 1px grey solid;
+			padding-left: 8px;
+			padding-right: 5px;
+		}
+	</style>
+</head>
+<body>
+    <div id="main">
+
+    <div id="comment">
+        <%= markdown(comment) %>
+    </div>
+
+        <div id="parameters">
+	<% if parameters != [] %>
+            <b>Parameters</b>
+            <table>
+                <% for parameter in parameters %>
+                    <tr>
+                        <td><%= parameter[0] %></td>
+			<td><%= parameter[2] %></td>
+                        <td><%= markdown(parameter[1]) %></td>
+                    </tr>
+                <% end %>
+            </table>
+	<% end %>
+        </div>
+
+    <% for annotation in annotations %>
+        <div>
+	<% if annotation[0] == "async" %>
+            <b><%= annotation[0] %></b>:<p>
+	This function is asynchronous. The values it returns are not guaranteed to be the same for each player.
+	If you attempt to use it in an synchronous manner it may cause a desync.
+		</p>
+	<% elsif annotation[0] == "pure" %>
+	   <b>pure</b>:<p>
+	This function is pure. For the same values passed to it, it will always return the same value.
+	   </p>
+	<% else %>
+            <b><%= annotation[0] %></b>: <%= markdown(annotation[1]) %>
+	<% end %>
+        </div>
+    <% end %>
+
+    </div>
+</body>
+</html>
