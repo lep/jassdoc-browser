@@ -46,8 +46,10 @@
                 <% for parameter in parameters %>
                     <tr>
                         <td><%= parameter[0] %></td>
-			<td><%= parameter[2] %></td>
-                        <td><%= markdown(parameter[1]) %></td>
+			<td><%= parameter[1] %></td>
+			<% if parameter[2] %>
+			    <td><%= markdown( parameter[2] ) %></td>
+			<% end %>
                     </tr>
                 <% end %>
             </table>
