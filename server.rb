@@ -11,6 +11,10 @@ configure :production do
     set :port, 81
 end
 
+configure :development do
+    set :bind, "0.0.0.0"
+end
+
 get '/doc/:fn' do |fn|
     comment = $db.execute "select comment from comments where fnname == ?", fn
     comment = comment[0][0] rescue "No Description yet"
