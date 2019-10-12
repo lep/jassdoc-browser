@@ -3,6 +3,8 @@
 require 'sinatra'
 require 'sqlite3'
 
+use Rack::Deflater
+
 $db = SQLite3::Database.new "jass.db"
 
 configure :production do

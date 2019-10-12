@@ -1,0 +1,50 @@
+
+.jassed {
+    font-family: monosapce;
+}
+
+.comment {
+    color: green;
+}
+
+.keyword {
+    color: black;
+    font-weight: bold;
+}
+
+.number {
+    color: #3333FF;
+}
+
+.string {
+    color: blue;
+}
+
+.rawcode {
+    color: blue;
+}
+
+.bool {
+    color: blue;
+}
+
+.type {
+    color: #4477aa;
+    font-weight: bold;
+}
+
+.native a {
+    style: none;
+    color: purple;
+}
+
+.bj a {
+    style: none;
+    color: #dd4444;
+}
+
+
+.operator {
+    color: sienna;
+}
+

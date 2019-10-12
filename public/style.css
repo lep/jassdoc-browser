@@ -1,0 +1,27 @@
+
+body {
+        margin: 40px auto;
+        max-width: 750px;
+        font-size: 18px;
+        color: #444;
+        padding: 0 10px;
+}
+
+b + p {
+        margin-top: 0px;
+}
+
+tr td:first-of-type {
+        padding-right: 8px;
+}
+
+#parameter > table > tbody > tr > td:first-of-type {
+        font-weight: bold;
+}
+
+td {
+        border-right: 1px grey solid;
+        border-top: 1px grey solid;
+        padding-left: 8px;
+        padding-right: 5px;
+}
