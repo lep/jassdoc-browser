@@ -16,8 +16,6 @@ configure :development do
 end
 
 get '/doc/:fn' do |fn|
-    comment = $db.execute "select comment from comments where fnname == ?", fn
-    comment = comment[0][0] rescue "No Description yet"
 
     query = <<SQL
 select Ty.param, Ty.value, Doc.value
@@ -41,21 +39,22 @@ left outer join
 order by Ord.value
 SQL
     parameters = $db.execute query, [fn, fn, fn]
-    annotations = $db.execute "select anname, value from annotations where fnname == ? order by anname", fn
-
+    annotations = $db.execute "select anname, value from annotations where fnname == ? and anname not in ('start-line', 'end-line') order by anname", fn
+    line = $db.execute "select value from annotations where fnname == ? and anname == 'start-line'", fn
+    line = line[0][0]
 
     erb :doc, :no_intra_emphasis => true,
               :locals => { :annotations => annotations,
-                          :parameters   => parameters,
-                          :comment      => comment,
-                          :fnname       => fn
+                           :parameters  => parameters,
+                           :fnname      => fn,
+                           :line        => line
                          }
 end
 
 get '/' do
-	"gtfo"
+    "gtfo"
 end
 
 get '*' do
-	"gtfo"
+    "gtfo"
 end

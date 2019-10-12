@@ -35,10 +35,6 @@
 <body>
     <div id="main">
 
-    <div id="comment">
-        <%= markdown(comment) %>
-    </div>
-
         <div id="parameters">
 	<% if parameters != [] %>
             <b>Parameters</b>
@@ -68,7 +64,10 @@
 	This function is pure. For the same values passed to it, it will always return the same value.
 	   </p>
 	<% elsif annotation[0] == "source-file" %>
-	    <b>Source</b>: <a href="https://github.com/lep/jassdoc/blob/master/<%= annotation[1] %>"><%= annotation[1] %></a>
+	    <b>Source</b>: <a href="https://github.com/lep/jassdoc/blob/master/<%= annotation[1] %>#L<%= line %>"><%= annotation[1] %></a>
+	<% elsif annotation[0] == "source-code" %>
+	    <b>Source code</b>:
+	    <p><pre><%= annotation[1] %></pre></p>
 	<% else %>
             <b><%= annotation[0] %></b>: <%= markdown(annotation[1]) %>
 	<% end %>
