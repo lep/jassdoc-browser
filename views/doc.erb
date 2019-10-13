@@ -19,7 +19,7 @@
                         <td><%= parameter[0] %></td>
 			<td><%= parameter[1] %></td>
 			<% if parameter[2] %>
-			    <td><%= markdown( parameter[2] ) %></td>
+			    <td><%= markdown( parameter[2], tables: true ) %></td>
 			<% end %>
                     </tr>
                 <% end %>
@@ -44,7 +44,7 @@
 	    <b>Source code</b>:
 	    <p><pre><%= annotation[1] %></pre></p>
 	<% else %>
-            <b><%= annotation[0] %></b>: <%= markdown(annotation[1]) %>
+            <b><%= annotation[0] %></b>: <%= markdown(annotation[1], tables: true) %>
 	<% end %>
         </div>
     <% end %>
