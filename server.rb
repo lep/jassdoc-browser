@@ -5,7 +5,6 @@ require 'sqlite3'
 
 use Rack::Deflater
 
-$db = SQLite3::Database.new "jass.db"
 
 configure :production do
     set :root, "/usr/local/etc/jassdoc"
@@ -16,6 +15,8 @@ end
 configure :development do
     set :bind, "0.0.0.0"
 end
+
+$db = SQLite3::Database.new "jass.db"
 
 get '/doc/:fn' do |fn|
 
