@@ -48,12 +48,12 @@ SQL
 
 
     # the :tables => true does nothing, have to pass it in erb file aswell
-    erb :doc, {:no_intra_emphasis => true, :tables => true},
-             { :annotations => annotations,
-               :parameters  => parameters,
-               :fnname      => fn,
-               :line        => line
-             }
+    erb :doc, { :no_intra_emphasis => true, :tables => true},
+              { :annotations => annotations,
+                :parameters  => parameters,
+                :fnname      => fn,
+                :line        => line
+              }
 end
 
 get '/' do
