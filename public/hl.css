@@ -33,7 +33,13 @@
     color: blue;
 }
 
-.type {
+.type a {
+    color: #4477aa;
+    font-weight: bold;
+    style: none;
+}
+
+.like-type {
     color: #4477aa;
     font-weight: bold;
 }
@@ -46,6 +52,16 @@
 .bj a {
     style: none;
     color: #dd4444;
+}
+
+.bjglobal a {
+    style: none;
+    color: #4477aa;
+}
+
+.cjglobal a {
+    style: none;
+    color: #4477aa;
 }
 
 

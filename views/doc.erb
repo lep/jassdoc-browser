@@ -43,6 +43,8 @@
 	<% elsif annotation[0] == "source-code" %>
 	    <b>Source code</b>:
 	    <p><pre><%= annotation[1] %></pre></p>
+	<% elsif annotation[0] == "event" %>
+	    <b>event</b>: <code><%= annotation[1] %></code>
 	<% else %>
             <b><%= annotation[0] %></b>: <%= markdown(annotation[1], tables: true) %>
 	<% end %>
