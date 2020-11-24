@@ -40,7 +40,7 @@ function setup(){
 
 	var req = new XMLHttpRequest()
 	req.addEventListener("load", on_load)
-	req.open("GET", "/api?query="+value)
+	req.open("GET", "/api/"+value)
 	req.send()
 
 
